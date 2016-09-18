@@ -4,6 +4,8 @@ import 'babel-polyfill';
 import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import compression from 'compression';
+import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -31,6 +33,8 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 //
 // Register Node.js middleware
 // -----------------------------------------------------------------------------
+app.use(compression());
+app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
