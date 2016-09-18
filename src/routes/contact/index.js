@@ -5,10 +5,10 @@ import Contact from './Contact';
 
 export default {
 
-  path: '/contact',
+	path: '/contact',
 
-  action() {
-    return <Contact />;
-  },
+	action() {
+		return <Contact />;
+	},
 
 };

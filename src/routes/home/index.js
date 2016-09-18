@@ -5,10 +5,10 @@ import Home from './Home';
 
 export default {
 
-  path: '/',
+	path: '/',
 
-  async action(obj) {
-    return <Home context={obj.context} />;
-  },
+	async action(obj) {
+		return <Home context={obj.context} />;
+	},
 
 };

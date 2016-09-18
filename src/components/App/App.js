@@ -9,60 +9,57 @@ import Footer from '../Footer';
 
 class App extends Component {
 
-  static propTypes = {
-    context: PropTypes.shape({
-      createHref: PropTypes.func.isRequired,
-      store: PropTypes.object.isRequired,
-      insertCss: PropTypes.func,
-      setTitle: PropTypes.func,
-      setMeta: PropTypes.func,
-    }).isRequired,
-    children: PropTypes.element.isRequired,
-    error: PropTypes.object,
-  };
+	static propTypes = {
+		context: PropTypes.shape({
+			store: PropTypes.object.isRequired,
+			insertCss: PropTypes.func,
+		}).isRequired,
+		children: PropTypes.element.isRequired,
+		error: PropTypes.shape,
+	};
 
-  static childContextTypes = {
-    createHref: PropTypes.func.isRequired,
-    insertCss: PropTypes.func.isRequired,
-    setTitle: PropTypes.func.isRequired,
-    setMeta: PropTypes.func.isRequired,
-  };
+	static childContextTypes = {
+		createHref: PropTypes.func.isRequired,
+		insertCss: PropTypes.func.isRequired,
+		setTitle: PropTypes.func.isRequired,
+		setMeta: PropTypes.func.isRequired,
+	};
 
-  getChildContext() {
-    const context = this.props.context;
-    return {
-      createHref: context.createHref,
-      insertCss: context.insertCss || emptyFunction,
-      setTitle: context.setTitle || emptyFunction,
-      setMeta: context.setMeta || emptyFunction,
-    };
-  }
+	getChildContext() {
+		const context = this.props.context;
+		return {
+			createHref: context.createHref,
+			insertCss: context.insertCss || emptyFunction,
+			setTitle: context.setTitle || emptyFunction,
+			setMeta: context.setMeta || emptyFunction,
+		};
+	}
 
-  componentWillMount() {
-    const { insertCss } = this.props.context;
-    this.removeCss = insertCss(s);
-  }
+	componentWillMount() {
+		const { insertCss } = this.props.context;
+		this.removeCss = insertCss(s);
+	}
 
-  componentWillUnmount() {
-    this.removeCss();
-  }
+	componentWillUnmount() {
+		this.removeCss();
+	}
 
-  render() {
-    if (this.props.error) {
-      return this.props.children;
-    }
+	render() {
+		if (this.props.error) {
+			return this.props.children;
+		}
 
-    const store = this.props.context.store;
-    return (
-      <Provider store={store}>
-        <div>
-          <Header />
-          {this.props.children}
-          <Footer />
-        </div>
-      </Provider>
-    );
-  }
+		const store = this.props.context.store;
+		return (
+			<Provider store={store}>
+				<div>
+					<Header />
+					{this.props.children}
+					<Footer />
+				</div>
+			</Provider>
+		);
+	}
 
 }
 

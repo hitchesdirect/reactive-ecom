@@ -1,18 +1,39 @@
 
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
-  "globals": {
-    "__DEV__": true
-  },
-  "rules": {
-    "indent": [2, "tab"],
-    "react/prefer-stateless-function": 0,
-    "react/jsx-quotes": 0,
-    "react/jsx-indent": [2, "tab"],
-    "react/jsx-indent-props": [2, "tab"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "jsx-quotes": [2, "prefer-double"],
-    "no-tabs": 0
-  }
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "globals": {
+        "__DEV__": true,
+        "window": true,
+        "self": true,
+    },
+    "plugins": [
+        "babel",
+    ],
+    "env": {
+        "browser": true,
+    },
+    "rules": {
+        "babel/generator-star-spacing": 1,
+        "babel/new-cap": 1,
+        "babel/array-bracket-spacing": 1,
+        "babel/object-curly-spacing": 1,
+        "babel/object-shorthand": 1,
+        "babel/arrow-parens": 1,
+        "babel/no-await-in-loop": 1,
+        "babel/flow-object-type": 1,
+        "babel/func-params-comma-dangle": 1,
+        "indent": [2, "tab"],
+        "react/prefer-stateless-function": 0,
+        "react/jsx-quotes": 0,
+        "react/jsx-indent": [2, "tab"],
+        "react/jsx-indent-props": [2, "tab"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/forbid-prop-types": 0,
+        "react/no-danger": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved": 0,
+        "jsx-quotes": [2, "prefer-double"],
+        "no-tabs": 0
+    }
 }
