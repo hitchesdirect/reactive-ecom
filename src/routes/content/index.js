@@ -23,10 +23,7 @@ export default {
     if (resp.status !== 200) throw new Error(resp.statusText);
     const { data } = await resp.json();
     if (!data || !data.content) return undefined;
-    return {
-      title: data.content.title,
-      component: <Content {...data.content} />,
-    };
+    return <Content {...data.content} />;
   },
 
 };

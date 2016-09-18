@@ -1,3 +1,5 @@
+// reactive-ecom - ninnemana
+
 import GitRepo from 'git-repository';
 import run from './run';
 import fetch from './lib/fetch';
@@ -6,8 +8,8 @@ import fetch from './lib/fetch';
 // For more information visit http://gitolite.com/deploy.html
 const getRemote = (slot) => ({
   name: slot || 'production',
-  url: 'https://git.heroku.com/hitches-direct.git',
-  website: 'http://hitches-direct.herokuapp.com',
+  url: `https://example${slot ? `-${slot}` : ''}.scm.azurewebsites.net:443/example.git`,
+  website: `http://example${slot ? `-${slot}` : ''}.azurewebsites.net`,
 });
 
 /**
