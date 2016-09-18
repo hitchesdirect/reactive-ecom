@@ -14,7 +14,7 @@ const getRemote = (slot) => ({
  * Deploy the contents of the `/build` folder to a remote
  * server via Git. Example: `npm run deploy -- production`
  */
-async function deploy()
+async function deploy() {
   // By default deploy to the staging deployment slot
   const remote = getRemote(process.argv.includes('--production') ? null : 'staging');
 
