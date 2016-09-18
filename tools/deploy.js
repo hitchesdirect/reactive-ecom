@@ -1,12 +1,3 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import GitRepo from 'git-repository';
 import run from './run';
 import fetch from './lib/fetch';
@@ -23,7 +14,7 @@ const getRemote = (slot) => ({
  * Deploy the contents of the `/build` folder to a remote
  * server via Git. Example: `npm run deploy -- production`
  */
-async function deploy() {
+async function deploy()
   // By default deploy to the staging deployment slot
   const remote = getRemote(process.argv.includes('--production') ? null : 'staging');
 
