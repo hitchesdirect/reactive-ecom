@@ -46,6 +46,9 @@ build:
 
 deploy:
   steps:
-    - heroku-deploy:
-      key-name: heroku
-      run: ls
+    # A step that executes `npm install` command
+    - npm-install
+
+    - script:
+        name: heroku
+        code: npm run deploy --production
