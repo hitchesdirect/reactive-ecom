@@ -46,7 +46,9 @@ build:
 
 deploy:
   steps:
-    - heroku-deploy:
-      key: $HEROKU_KEY
-      user: $HEROKU_USER
-      app-name: $HEROKU_APP_NAME
+    # A step that executes `npm install` command
+    - npm-install
+
+    - script:
+        name: heroku
+        code: npm run deploy --production
