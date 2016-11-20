@@ -12,7 +12,7 @@ function Header() {
 			<div className={s.container}>
 				<Navigation className={s.nav} />
 				<Link className={s.brand} to="/">
-					<span className={s.brandTxt}>Hitches Direct</span>
+					<img src={'logo.gif'} alt="Hitches Direct" />
 				</Link>
 				<div className={s.banner}>
 					<h1 className={s.bannerTitle}>Towing</h1>
